@@ -11,6 +11,9 @@ const student = schema({
     role_id:{
         type: schema.Types.ObjectId,
             ref : 'role'
+    },
+    email:{
+        type:String
     }
 })
 module.exports = mongoose.model('student', student)

@@ -1,5 +1,5 @@
 const student = require('../Model/StudentSchema')
-
+const email = require('../util/nodeMailer')
 module.exports.addstudent = (req, res)=>{
     const studentadd = new student(req.body)
     studentadd.save((err, data )=>{
@@ -11,10 +11,8 @@ module.exports.addstudent = (req, res)=>{
         }
         else 
         {
-            res.status(200).json({
-                message :"successfully ccreated", 
-                data : data    
-            })
+            res.status(200).json({ message : "successfull"})
+            email.send().then((info)=>{console.log("info", info)}).catch((err)=>{console.log(err)})
         }
     })
 }
