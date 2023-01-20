@@ -5,7 +5,7 @@ const encrypt = require('../util/PasswordDecryption')
 const jwt = require('jsonwebtoken')
 const secret = "secret"
 module.exports.addemp = (req, res)=>{
-    const password = drcypt.encrypt(req.body.password)
+    const password = encrypt.encrypt(req.body.password)
     req.body.password = password
     var emps = new emp(req.body);
     
